@@ -4,7 +4,7 @@
 using namespace std;
 
 //Time = O(n^2) -> checking each index by every other index
-//Time = O(nlogn) -> using hash map find
+//Time = O(nlogn) -> using ordered hash map & find
 
 bool checkForSumOfXBetter(int *arr, int n, int x) {
     map<int,int> elements;
