@@ -4,7 +4,7 @@
 using namespace std;
 
 //Time = O(n^2) -> checking each index by every other index
-//Time = O(n) -> using hash map
+//Time = O(nlogn) -> using hash map find
 
 const int MAX=65535;
 
