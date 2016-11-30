@@ -1,10 +1,29 @@
 #include <iostream>
 #include <map>
+#include <algorithm>
 
 using namespace std;
 
 //Time = O(n^2) -> checking each index by every other index
 //Time = O(nlogn) -> using ordered hash map & find
+
+bool checkForSumOfX3(int *arr, int n, int x) {
+    sort(arr, arr+n);
+    int first = 0;
+    int last = n-1;
+    while (first < last) {
+        if (arr[first]+arr[last] == x) {
+            return true;
+        }
+        if (arr[first]+arr[last] < x) {
+            first++;
+        } else if (arr[first]+arr[last] > x) {
+            last--;
+        }
+    }
+    return false;
+
+}
 
 bool checkForSumOfXBetter(int *arr, int n, int x) {
     map<int,int> elements;
@@ -42,8 +61,8 @@ bool checkForSumOfX(int *arr, int n, int x) {
 int main() {
     int n = 8; //# of elements in array
     int A[n] = {1,2,3,4,5,4,4,5};
-    int x = 3;
-    bool result = checkForSumOfXBetter(A,n,x);
+    int x = 20;
+    bool result = checkForSumOfX3(A,n,x);
     cout << to_string(result);
     return 0;
 }
